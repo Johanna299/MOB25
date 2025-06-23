@@ -1,3 +1,4 @@
+/* Basislayout: Mobile First */
 body {
     margin: 0;
     font-family: 'Inter', sans-serif;
@@ -6,18 +7,25 @@ body {
     justify-content: center;
     align-items: start;
     padding: 20px;
-    height: 100vh;
+    min-height: 100vh;
 }
 
+a {
+    text-decoration: none;
+}
+
+/* App-Hauptcontainer */
 .app-container {
     width: 100%;
-    max-width: 360px;
+    max-width: 400px;
     background-color: #ffffff;
-    border-radius: 10px;
-    padding: 20px;
+    border-radius: 12px;
+    padding: 24px;
     box-sizing: border-box;
+    margin: auto;
 }
 
+/* Kopfzeile */
 .header {
     display: flex;
     justify-content: space-between;
@@ -27,6 +35,7 @@ body {
 .title {
     font-size: 24px;
     font-weight: bold;
+    color: #000;
 }
 
 .heart {
@@ -34,6 +43,7 @@ body {
     color: orange;
 }
 
+/* Eingabefeld und Kamera */
 .input-section {
     margin-top: 20px;
     display: flex;
@@ -47,6 +57,7 @@ input[type="text"] {
     border: none;
     background-color: #e9e1f1;
     font-size: 14px;
+    outline: none;
 }
 
 .camera-btn {
@@ -60,16 +71,18 @@ input[type="text"] {
     cursor: pointer;
 }
 
+/* Zutatenliste */
 .section-title {
-    margin-top: 25px;
+    margin-top: 30px;
     font-size: 16px;
     font-weight: bold;
+    color: #000;
 }
 
 .ingredient-list {
     list-style: none;
     padding: 0;
-    margin-top: 10px;
+    margin-top: 12px;
 }
 
 .ingredient-list li {
@@ -77,6 +90,9 @@ input[type="text"] {
     align-items: center;
     justify-content: space-between;
     margin-bottom: 12px;
+    background-color: #f6f6f6;
+    border-radius: 8px;
+    padding: 8px 12px;
 }
 
 .icon {
@@ -94,6 +110,7 @@ input[type="text"] {
 .text {
     flex: 1;
     margin-left: 12px;
+    color: #333;
 }
 
 .delete-btn {
@@ -107,10 +124,11 @@ input[type="text"] {
     cursor: pointer;
 }
 
+/* Button unten */
 .discover-btn {
     display: block;
     width: 100%;
-    margin-top: 20px;
+    margin-top: 24px;
     background-color: #c4e86b;
     color: #333;
     font-weight: bold;
@@ -118,4 +136,28 @@ input[type="text"] {
     border: none;
     border-radius: 10px;
     cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.discover-btn:hover {
+    background-color: #b0d85e;
+}
+
+/* --- Responsive Erweiterung --- */
+@media (min-width: 768px) {
+    .app-container {
+        padding: 40px;
+    }
+
+    .title {
+        font-size: 28px;
+    }
+
+    .section-title {
+        font-size: 18px;
+    }
+
+    input[type="text"] {
+        font-size: 16px;
+    }
 }
