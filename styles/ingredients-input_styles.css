@@ -1,0 +1,104 @@
+/*---------------------------------------------------------
+* searchbar input and camera button
+---------------------------------------------------------*/
+/* container for searchbar and camera button */
+.input-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+/* searchbar */
+.search-form {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    background-color: #e9e1f1;
+    border-radius: 999px;
+    padding: 2px 12px;
+}
+
+.search-form input[type="text"] {
+    flex: 1;
+    border: none;
+    background: transparent;
+    padding: 10px;
+    font-size: 14px;
+    outline: none;
+}
+
+/* submit for searchbar */
+.search-btn {
+    background: none;
+    border: none;
+    color: #333;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+/* camera button */
+.camera-btn {
+    background-color: #5d3c9e;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 42px;
+    height: 42px;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+/*---------------------------------------------------------
+* ingredients list
+---------------------------------------------------------*/
+/* all selected ingredients list */
+.ingredient-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 12px;
+}
+
+/* ingredient item */
+.ingredient {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    background-color: #f6f6f6;
+    border-radius: 8px;
+    padding: 8px 12px;
+}
+
+.ingredient-icon {
+    background-color: #e9d9fb;
+    color: #6e44c6;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.ingredient-text {
+    flex: 1;
+    margin-left: 12px;
+    color: #333;
+}
+
+/* delete one ingredient */
+.delete-btn {
+    background-color: #5d3c9e;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    font-size: 16px;
+    cursor: pointer;
+}

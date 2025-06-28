@@ -1,10 +1,121 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rezeptvorschläge</title>
+    <link rel="stylesheet" href="../styles/styles.css" />
+    <link rel="stylesheet" href="../styles/recipe-suggestions_styles.css"/>
+    <!-- include fontawesome.com -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
+    <div class="container">
+        <div class="header">
+            <a href="ingredients-input.html" class="back-btn">
+                <i class="fa-solid fa-arrow-left"></i>
+                Zurück zu den Zutaten
+            </a>
+            <a href="../pages/saved-recipes.html" class="allfavs-btn">
+                <i class="fa-solid fa-heart"></i>
+            </a>
+        </div>
 
+        <h1 class="headline">Passende Rezepte</h1>
+
+        <h2 class="section-title">Kategorien</h2>
+        <div class="categories">
+            <button class="category">Alle</button>
+            <button class="category">Vegetarisch</button>
+            <button class="category">Fleischgerichte</button>
+            <button class="category">Vegan</button>
+        </div>
+
+        <div class="recipe-grid">
+            <div class="recipe-card">
+                <div class="image-wrapper">
+                    <img src="../img/kwmcontacts.png" alt=""/>
+                    <button class="save-recipe">
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+                </div>
+                <div class="recipe-info">
+                    <p class="recipe-title">Ramen</p>
+                    <p class="recipe-match">95% Zutaten-Match</p>
+                    <p class="recipe-duration">
+                        <i class="fa-solid fa-stopwatch"></i>
+                        15min
+                    </p>
+                </div>
+            </div>
+            <div class="recipe-card">
+                <div class="image-wrapper">
+                    <img src="../img/kwmcontacts.png" alt=""/>
+                    <button class="save-recipe">
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+                </div>
+                <div class="recipe-info">
+                    <p class="recipe-title">Ramen</p>
+                    <p class="recipe-match">95% Zutaten-Match</p>
+                    <p class="recipe-duration">
+                        <i class="fa-solid fa-stopwatch"></i>
+                        15min
+                    </p>
+                </div>
+            </div>
+            <div class="recipe-card">
+                <div class="image-wrapper">
+                    <img src="../img/kwmcontacts.png" alt=""/>
+                    <button class="save-recipe">
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+                </div>
+                <div class="recipe-info">
+                    <p class="recipe-title">Ramen</p>
+                    <p class="recipe-match">95% Zutaten-Match</p>
+                    <p class="recipe-duration">
+                        <i class="fa-solid fa-stopwatch"></i>
+                        15min
+                    </p>
+                </div>
+            </div>
+
+            <div class="recipe-card">
+                <div class="image-wrapper">
+                    <img src="../img/kwmcontacts.png" alt=""/>
+                    <button class="save-recipe">
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+                </div>
+                <div class="recipe-info">
+                    <p class="recipe-title">Ramen</p>
+                    <p class="recipe-match">95% Zutaten-Match</p>
+                    <p class="recipe-duration">
+                        <i class="fa-solid fa-stopwatch"></i>
+                        15min
+                    </p>
+                </div>
+            </div>
+            <div class="recipe-card">
+                <div class="image-wrapper">
+                    <img src="../img/kwmcontacts.png" alt=""/>
+                    <button class="save-recipe">
+                        <i class="fa-regular fa-heart"></i>
+                    </button>
+                </div>
+                <div class="recipe-info">
+                    <p class="recipe-title">Ramen</p>
+                    <p class="recipe-match">95% Zutaten-Match</p>
+                    <p class="recipe-duration">
+                        <i class="fa-solid fa-stopwatch"></i>
+                        15min
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/recipe-suggestions.js"></script>
 </body>
 </html>

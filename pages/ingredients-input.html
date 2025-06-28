@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zutateneingabe</title>
+    <link rel="stylesheet" href="../styles/styles.css" />
+    <link rel="stylesheet" href="../styles/ingredients-input_styles.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap">
+    <!-- include fontawesome.com -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="headline">Meine Zutaten</h1>
+            <a href="../pages/saved-recipes.html" class="allfavs-btn">
+                <i class="fa-solid fa-heart"></i>
+            </a>
+        </div>
+
+        <div class="input-section">
+            <form class="search-form">
+                <input type="text" placeholder="Deine Zutat eingeben" />
+                <button type="submit" class="search-btn">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </form>
+            <button class="camera-btn">
+                <i class="fa-solid fa-camera"></i>
+            </button>
+        </div>
+
+        <h2 class="section-title">Ausgewählte Zutaten</h2>
+        <ul class="ingredient-list">
+            <li class="ingredient">
+                <span class="ingredient-icon">A</span>
+                <span class="ingredient-text">Ananas</span>
+                <button class="delete-btn">
+                    <i class="fa-solid fa-trash"></i>
+                </button>
+            </li>
+            <li class="ingredient">
+                <span class="ingredient-icon">B</span>
+                <span class="ingredient-text">Banane</span>
+                <button class="delete-btn">
+                    <i class="fa-solid fa-trash"></i>
+                </button>
+            </li>
+            <li class="ingredient">
+                <span class="ingredient-icon">B</span>
+                <span class="ingredient-text">Brokkoli</span>
+                <button class="delete-btn">
+                    <i class="fa-solid fa-trash"></i>
+                </button>
+            </li>
+            <li class="ingredient">
+                <span class="ingredient-icon">E</span>
+                <span class="ingredient-text">Erdbeere</span>
+                <button class="delete-btn">
+                    <i class="fa-solid fa-trash"></i>
+                </button>
+            </li>
+            <li class="ingredient">
+                <span class="ingredient-icon">M</span>
+                <span class="ingredient-text">Milch</span>
+                <button class="delete-btn">
+                    <i class="fa-solid fa-trash"></i>
+                </button>
+            </li>
+        </ul>
+
+        <div class="centering-container">
+            <a href="recipe-suggestions.html" class="btn">Rezepte entdecken</a>
+        </div>
+    </div>
+</body>
+</html>
