@@ -1,14 +1,10 @@
 /* logo */
-.logo-circle {
-    width: 160px;
-    height: 160px;
-    background-color: #dcdcdc;
-    border-radius: 50%;
+.logo {
+    width: 16rem;
+    height: 16rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 22px;
-    color: black;
     margin-bottom: 40px;
 }
 
