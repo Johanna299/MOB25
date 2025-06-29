@@ -1,14 +1,15 @@
-/* Optional: override .container if nötig */
-.container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 1rem;
-    background: #fff;
-    min-height: 100vh;
-    box-sizing: border-box;
+/* button for going back to all recipe suggestions */
+.back-btn {
+    font-size: 1.2rem;
+    text-decoration: none;
+    color: #222;
+    background: none;
+    border: none;
 }
 
-/* Bildbereich */
+/*---------------------------------------------------------
+* image
+---------------------------------------------------------*/
 .image-wrapper.large {
     border: 2px solid #a259ff;
     border-radius: 8px;
@@ -26,33 +27,7 @@
     border-radius: 50%;
 }
 
-/* Header mit Zurück & Herz */
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-/*.heart-icon {*/
-/*    background: white;*/
-/*    border: none;*/
-/*    border-radius: 50%;*/
-/*    padding: 6px;*/
-/*    font-size: 1.3rem;*/
-/*    color: #ff5a5f;*/
-/*    cursor: pointer;*/
-/*    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);*/
-/*}*/
-
-.back-btn {
-    font-size: 1.2rem;
-    text-decoration: none;
-    color: #222;
-    background: none;
-    border: none;
-}
-
-/* Titel & Zeit */
+/* title and duration info */
 .recipe-meta {
     display: flex;
     justify-content: space-between;
@@ -73,7 +48,7 @@
     font-size: 0.9rem;
 }
 
-/* Zutatenpunkte */
+/* ingredients placeholder */
 .ingredient-icons {
     display: flex;
     gap: 8px;
@@ -87,7 +62,7 @@
     background-color: #7d59c2;
 }
 
-/* Tabs */
+/* tabs for details and recipe */
 .tabs {
     display: flex;
     gap: 1rem;
@@ -109,9 +84,27 @@
     color: #aaa;
 }
 
-/* Beschreibung */
 .recipe-description {
     font-size: 0.9rem;
     line-height: 1.4;
     color: #333;
+}
+
+/*---------------------------------------------------------
+* responsive optimization for desktop
+---------------------------------------------------------*/
+@media (min-width: 1024px) {
+    .wrapper {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .recipe-main {
+        min-width: 40%;
+    }
+
+    .recipe-details {
+        max-width: 50%;
+    }
 }

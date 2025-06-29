@@ -1,3 +1,7 @@
+.save-recipe {
+    position: absolute;
+}
+
 .categories {
     display: flex;
     gap: 0.5rem;
@@ -40,7 +44,10 @@
     max-width: calc(100% - 1rem);
 }
 
-/* Ab 320px – 2 Karten */
+/*---------------------------------------------------------
+* responsive optimization
+---------------------------------------------------------*/
+/* mobile: 2 cards in a row */
 @media (min-width: 320px) {
     .recipe-card {
         flex: 0 1 calc(50% - 1rem);
@@ -48,7 +55,7 @@
     }
 }
 
-/* Ab 768px – 3 Karten */
+/* tablet: 3 cards in a row */
 @media (min-width: 768px) {
     .recipe-card {
         flex: 0 1 calc(33.333% - 1rem);
@@ -56,7 +63,7 @@
     }
 }
 
-/* Ab 1024px – 4 Karten */
+/* desktop: 4 cards in a row */
 @media (min-width: 1024px) {
     .recipe-card {
         flex: 0 1 calc(25% - 1rem);
@@ -67,7 +74,7 @@
 .image-wrapper {
     position: relative;
     width: 100%;
-    aspect-ratio: 1 / 1; /* macht es quadratisch */
+    aspect-ratio: 1 / 1;
     overflow: hidden;
 }
 
