@@ -1,31 +1,18 @@
-const CACHE_NAME = "whats-cookin-cache-v1";
+const CACHE_NAME = "whats-cookin-cache-v2";
 const CACHED_URLS = [
-    // "css/materialize.min.css",
-    // "css/styles.css",
-    // "https://fonts.googleapis.com/icon?family=Material+Icons",
-    // "https://fonts.gstatic.com/s/materialicons/v143/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2",
-    // "/img/icons/icon-144.png",
-    // "img/kwmcontacts.png",
-    // "js/app.js",
-    // "js/common.js",
-    // "js/materialize.min.js",
-    // "pages/about.html",
-    // "index.html",
-    // "/",
-    // "manifest.webmanifest",
-    // "favicon.ico",
-    "/",                    // Root-Seite
-    "index.html",           // Startseite
-    "manifest.webmanifest", // PWA-Konfiguration
+    "/",
+    "index.html",
+    "manifest.webmanifest",
     "styles/styles.css",
     "styles/index_styles.css",
     "styles/ingredients-input_styles.css",
     "styles/recipe-detail_styles.css",
     "styles/recipe-suggestions_styles.css",
-    "js/app.js",            // dein Haupt-JavaScript
+    "js/app.js",
     "js/recipe-suggestions.js",
-    "img/logo.png",         // Logo oder Startbild
-    "pages/ingredients-input.html",     // Beispielseite
+    "img/logo.png",
+    "favicon.ico",
+    "pages/ingredients-input.html",
     "pages/recipe-detail.html",
     "pages/recipe-suggestions.html",
     "pages/saved-recipes.html"
