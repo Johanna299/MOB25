@@ -11,9 +11,9 @@ if ("serviceWorker" in navigator){
 }
 
 //TODO API getestet, Daten im index.html console ausgegeben
-fetch("https://api.spoonacular.com/recipes/complexSearch?query=pasta&apiKey=4c24a4071a244fcda3e1efad2aa6c563")
-    .then(res => res.json())
-    .then(data => {
-        console.log(data.results);
-        // Hier könntest du die Daten dynamisch ins HTML schreiben
-    });
+// fetch(`https://api.spoonacular.com/recipes/complexSearch?query=pasta&apiKey=${SPOONACULAR_API_KEY}`)
+//     .then(res => res.json())
+//     .then(data => {
+//         console.log(data.results);
+//         // Hier könntest du die Daten dynamisch ins HTML schreiben
+//     });

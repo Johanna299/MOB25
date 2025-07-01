@@ -23,7 +23,7 @@ function displayRecipes(recipes) {
     const container = document.querySelector('.recipe-grid');
     JSON.parse(recipes).forEach(recipe => {
         const recipeId = recipe.id;
-        fetch(`https://api.spoonacular.com/recipes/${recipeId}/information?apiKey=4c24a4071a244fcda3e1efad2aa6c563`)
+        fetch(`https://api.spoonacular.com/recipes/${recipeId}/information?apiKey=${SPOONACULAR_API_KEY}`)
             .then(res => res.json())
             .then(data => {
                 console.log(data);
