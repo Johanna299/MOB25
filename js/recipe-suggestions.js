@@ -298,12 +298,15 @@
 //     });
 // }
 
-// Herz-Button (Speichern)
+// Herz-Button (Speichern) -- nur Toggle Effekt derzeit
 document.addEventListener('click', event => {
-    if (event.target.closest('.save-recipe')) {
-        const button = event.target.closest('.save-recipe');
-        const icon = button.querySelector('i');
-        button.classList.toggle('active');
+    const saveButton = event.target.closest('.save-recipe');
+    if (saveButton) {
+        event.preventDefault();     // Verhindert, dass der <a>-Link ausgeführt wird
+        event.stopPropagation();    // Verhindert, dass das Klick-Event weiter hochgeht
+
+        const icon = saveButton.querySelector('i');
+        saveButton.classList.toggle('active');
         icon.classList.toggle('fa-regular');
         icon.classList.toggle('fa-solid');
     }
