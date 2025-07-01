@@ -1,26 +1,17 @@
-// const params = new URLSearchParams(window.location.search);
-// const recipeId = params.get("id");
-//
-// fetch(`https://api.spoonacular.com/recipes/${recipeId}/information?apiKey=4c24a4071a244fcda3e1efad2aa6c563`)
-//     .then(res => res.json())
-//     .then(data => {
-//         // Hier Rezeptdaten einfügen (Titel, Zeit, Anleitung, Zutaten, Bild etc.)
-//         console.log(data);
-//     });
-
+//save a recipe with a click on the heart-buttond (TODO derzeit nur farbig, aber ned wirklich gespeichert)
 document.querySelectorAll('.save-recipe').forEach(button => {
     button.addEventListener('click', () => {
         const icon = button.querySelector('i');
         button.classList.toggle('active');
-        // Toggle zwischen Outline und Solid Icon
+        //toggle between filled and outline icon
         icon.classList.toggle('fa-regular');
         icon.classList.toggle('fa-solid');
     });
 });
 
+//get the one selected recipe from recipe-suggestions
 const recipe = JSON.parse(sessionStorage.getItem("selectedRecipe"));
-if (recipe) {
-    // Daten anzeigen
+if(recipe){
     console.log(recipe);
     displayRecipe(recipe);
 } else {
@@ -28,6 +19,7 @@ if (recipe) {
     document.querySelector('.wrapper').textContent = 'Kein Rezept ausgewählt.';
 }
 
+//render recipe in detail view
 function displayRecipe(recipe) {
     const wrapper = document.querySelector('.wrapper');
 
@@ -64,13 +56,11 @@ function displayRecipe(recipe) {
     </div>
   `;
 
-    // Wrapper vorher leeren (optional)
     wrapper.innerHTML = '';
-
-    // Template als HTML einfügen
+    // insert template
     wrapper.insertAdjacentHTML('beforeend', card);
 
-    // 👉 Tabs aktivieren
+    //activate tabs
     const detailTab = document.querySelector('.tab:nth-child(1)');
     const recipeTab = document.querySelector('.tab:nth-child(2)');
     const description = document.querySelector('.recipe-description');

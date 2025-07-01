@@ -8,6 +8,7 @@ for (let ingredient of getIngredientsFromList()) {
     console.log(ingredient);
 }
 
+//TODO derzeit nur 10 Rezepte von API geholt
 function searchRecipes(ingredients) {
     const query = ingredients.join(',');
     const url = `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${encodeURIComponent(query)}&number=10&apiKey=4c24a4071a244fcda3e1efad2aa6c563`;
