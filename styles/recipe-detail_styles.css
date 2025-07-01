@@ -101,7 +101,7 @@
     }
 
     .recipe-main {
-        min-width: 40%;
+        max-width: 40%;
     }
 
     .recipe-details {

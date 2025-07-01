@@ -31,7 +31,7 @@ if (recipe) {
 function displayRecipe(recipe) {
     const wrapper = document.querySelector('.wrapper');
 
-    // Template als Template Literal (Backticks), dynamisch mit Rezeptdaten
+    //template filled with dynamic recipe data
     const card = `
     <div class="recipe-main">
       <div class="image-wrapper large">
@@ -50,9 +50,7 @@ function displayRecipe(recipe) {
 
       <h3 class="section-title">Zutaten</h3>
       <ul class="ingredient-icons">
-        ${[...(recipe.usedIngredients || []), ...(recipe.missedIngredients || [])]
-        .map(ing => `<li>${ing.original || ing.name}</li>`)
-        .join('')}
+        ${recipe.extendedIngredients?.map(ing => `<li>${ing.original}</li>`).join('') || '<li>Keine Zutaten verfügbar.</li>'}
       </ul>
 
       <div class="tabs">
@@ -61,7 +59,7 @@ function displayRecipe(recipe) {
       </div>
 
       <p class="recipe-description">
-        ${recipe.summary || recipe.instructions || 'Keine Beschreibung vorhanden.'}
+        ${recipe.summary || 'Keine Beschreibung vorhanden.'}
       </p>
     </div>
   `;
@@ -71,4 +69,25 @@ function displayRecipe(recipe) {
 
     // Template als HTML einfügen
     wrapper.insertAdjacentHTML('beforeend', card);
+
+    // 👉 Tabs aktivieren
+    const detailTab = document.querySelector('.tab:nth-child(1)');
+    const recipeTab = document.querySelector('.tab:nth-child(2)');
+    const description = document.querySelector('.recipe-description');
+
+    detailTab.addEventListener('click', () => {
+        detailTab.classList.add('active');
+        detailTab.classList.remove('inactive');
+        recipeTab.classList.add('inactive');
+        recipeTab.classList.remove('active');
+        description.innerHTML = recipe.summary || 'Keine Beschreibung vorhanden.';
+    });
+
+    recipeTab.addEventListener('click', () => {
+        recipeTab.classList.add('active');
+        recipeTab.classList.remove('inactive');
+        detailTab.classList.add('inactive');
+        detailTab.classList.remove('active');
+        description.innerHTML = recipe.instructions || 'Keine Anleitung vorhanden.';
+    });
 }

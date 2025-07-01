@@ -8,8 +8,7 @@ document.querySelectorAll('.save-recipe').forEach(button => {
     });
 });
 
-
-// 🎯 Rezepte aus sessionStorage holen
+// load recipes from sessionStorage
 const recipes = sessionStorage.getItem('recipes-result');
 
 if (recipes) {
@@ -26,7 +25,7 @@ function displayRecipes(recipes) {
         fetch(`https://api.spoonacular.com/recipes/${recipeId}/information?apiKey=${SPOONACULAR_API_KEY}`)
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                console.log("TEST", data);
                 const title = data.title;
                 const image = data.image;
                 const duration = data.readyInMinutes;
@@ -51,7 +50,7 @@ function displayRecipes(recipes) {
                 </div>
             `;
                 card.addEventListener("click", () => {
-                    sessionStorage.setItem("selectedRecipe", JSON.stringify(recipe));
+                    sessionStorage.setItem("selectedRecipe", JSON.stringify(data));
                 });
                 container.appendChild(card);
             });
