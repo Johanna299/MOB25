@@ -1,0 +1,110 @@
+/* button for going back to all recipe suggestions */
+.back-btn {
+    font-size: 1.2rem;
+    text-decoration: none;
+    color: #222;
+    background: none;
+    border: none;
+}
+
+/*---------------------------------------------------------
+* image
+---------------------------------------------------------*/
+.image-wrapper.large {
+    border: 2px solid #a259ff;
+    border-radius: 8px;
+    margin: 1rem 0;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-placeholder {
+    width: 70%;
+    height: 70%;
+    background-color: #7d59c2;
+    border-radius: 50%;
+}
+
+/* title and duration info */
+.recipe-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.recipe-title {
+    font-weight: bold;
+    font-size: 1.4rem;
+    margin: 0.5rem 0;
+}
+
+.duration {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* ingredients placeholder */
+.ingredient-icons {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 1rem;
+}
+
+.ingredient-dot {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background-color: #7d59c2;
+}
+
+/* tabs for details and recipe */
+.tabs {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.tab {
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.tab.active {
+    border-bottom: 2px solid orange;
+    color: black;
+}
+
+.tab.inactive {
+    color: #aaa;
+}
+
+.recipe-description {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    color: #333;
+}
+
+/*---------------------------------------------------------
+* responsive optimization for desktop
+---------------------------------------------------------*/
+@media (min-width: 1024px) {
+    .wrapper {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .recipe-main {
+        max-width: 40%;
+    }
+
+    .recipe-details {
+        max-width: 50%;
+    }
+}

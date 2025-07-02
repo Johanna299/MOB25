@@ -1,3 +1,4 @@
+//TODO noch vom alten KWMContacts Projekt 1zu1 übernommen, nicht mehr im index.html eingebunden
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-app.js";
 // TODO: Add SDKs for Firebase products that you want to use
