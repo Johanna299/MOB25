@@ -17,6 +17,9 @@
     background-color: #e9e1f1;
     border-radius: 999px;
     padding: 2px 12px;
+    position: relative;
+    overflow: visible; /* wichtig, damit die Dropdown-Liste übersteht */
+    z-index: 1;
 }
 
 .search-form input[type="text"] {
@@ -73,23 +76,28 @@
     padding: 8px 12px;
 }
 
-.ingredient-icon {
-    background-color: #e9d9fb;
-    color: #6e44c6;
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-}
+
 
 .ingredient-text {
     flex: 1;
     margin-left: 12px;
     color: #333;
 }
+
+.ingredient-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%!important;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.ingredient-circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 
 /* delete one ingredient */
 .delete-btn {
@@ -101,4 +109,95 @@
     height: 32px;
     font-size: 16px;
     cursor: pointer;
+}
+
+.suggestion-box {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    position: absolute;
+    width: 100%;
+    z-index: 10;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.suggestion-box li {
+    padding: 0.5rem;
+    cursor: pointer;
+}
+
+.suggestion-box li:hover {
+    background-color: #f0f0f0;
+}
+
+#dropdown-suggestions {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    max-height: 144px; /* ca. 2 Einträge à 72px */
+    overflow-y: auto;
+    background-color: #fff;
+    border: 1px solid #d3d3d3;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+    display: none;
+    box-sizing: border-box;
+    padding: 4px 0;
+    scroll-behavior: smooth;
+}
+
+
+.dropdown-item {
+    height: 72px;
+    padding: 10px 12px;
+    display: flex;
+    align-items: center;
+}
+
+
+.dropdown-item:hover {
+    background-color: #f5f5ff;
+}
+
+.dropdown-item img {
+    width: 36px;
+    height: 36px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-right: 10px;
+}
+
+.input-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.detached-dropdown {
+    margin-top: 8px;
+    width: 100%;
+    max-width: 600px; /* optional: begrenzt Breite */
+    max-height: 144px; /* ca. 2 Einträge */
+    overflow-y: auto;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+    padding: 4px 0;
+    display: none;
+}
+
+
+.custom-dropdown .dropdown-item img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%!important;
+    border: 1px solid #ddd;
 }

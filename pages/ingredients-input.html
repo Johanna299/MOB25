@@ -20,59 +20,40 @@
         </div>
 
         <div class="input-section">
-            <form class="search-form">
-                <input type="text" placeholder="Deine Zutat eingeben" />
-                <button type="submit" class="search-btn">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                </button>
+            <form class="search-form" id="search-form">
+                <div class="input-wrapper">
+                    <input
+                            id="ingredient-input"
+                            type="text"
+                            placeholder="Zutat eingeben..."
+                            autocomplete="off"
+                    />
+                    <button type="submit" class="search-btn">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </div>
             </form>
+
             <button class="camera-btn">
                 <i class="fa-solid fa-camera"></i>
             </button>
+
+
         </div>
+
+        <div id="suggestion-box" class="custom-dropdown" style="display: none;"></div>
+
+
 
         <h2 class="section-title">Ausgewählte Zutaten</h2>
         <ul class="ingredient-list">
-            <li class="ingredient">
-                <span class="ingredient-icon">A</span>
-                <span class="ingredient-text">Ananas</span>
-                <button class="delete-btn">
-                    <i class="fa-solid fa-trash"></i>
-                </button>
-            </li>
-            <li class="ingredient">
-                <span class="ingredient-icon">B</span>
-                <span class="ingredient-text">Banane</span>
-                <button class="delete-btn">
-                    <i class="fa-solid fa-trash"></i>
-                </button>
-            </li>
-            <li class="ingredient">
-                <span class="ingredient-icon">B</span>
-                <span class="ingredient-text">Brokkoli</span>
-                <button class="delete-btn">
-                    <i class="fa-solid fa-trash"></i>
-                </button>
-            </li>
-            <li class="ingredient">
-                <span class="ingredient-icon">E</span>
-                <span class="ingredient-text">Erdbeere</span>
-                <button class="delete-btn">
-                    <i class="fa-solid fa-trash"></i>
-                </button>
-            </li>
-            <li class="ingredient">
-                <span class="ingredient-icon">M</span>
-                <span class="ingredient-text">Milch</span>
-                <button class="delete-btn">
-                    <i class="fa-solid fa-trash"></i>
-                </button>
-            </li>
+            <!-- Dynamisch generierte Zutaten -->
         </ul>
 
         <div class="centering-container">
             <a href="recipe-suggestions.html" class="btn">Rezepte entdecken</a>
         </div>
     </div>
+    <script type="module" src="../js/ingredients.js"></script>
 </body>
 </html>
