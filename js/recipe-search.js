@@ -1,5 +1,6 @@
 function getIngredientsFromList() {
     const elements = document.querySelectorAll('.ingredient-text');
+    console.log(elements);
     const ingredients = Array.from(elements).map(el => el.textContent.trim());
     return ingredients;
 }
@@ -26,6 +27,7 @@ function searchRecipes(ingredients) {
 
 document.querySelector('.btn').addEventListener('click', function(e) {
     e.preventDefault(); // Seite nicht direkt wechseln
+    console.log("Klick");
     const ingredients = getIngredientsFromList();
     searchRecipes(ingredients);
 });

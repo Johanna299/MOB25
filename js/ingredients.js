@@ -1,5 +1,3 @@
-const apiKey = "4c24a4071a244fcda3e1efad2aa6c563"; // Spoonacular API-Key
-
 const input = document.getElementById("ingredient-input");
 const suggestionBox = document.getElementById("suggestion-box"); // Das neue Dropdown
 const dropdown = document.querySelector(".detached-dropdown");
@@ -17,7 +15,7 @@ input.addEventListener("input", async () => {
     }
 
     try {
-        const res = await fetch(`https://api.spoonacular.com/food/ingredients/autocomplete?query=${encodeURIComponent(query)}&number=10&metaInformation=true&apiKey=${apiKey}`);
+        const res = await fetch(`https://api.spoonacular.com/food/ingredients/autocomplete?query=${encodeURIComponent(query)}&number=10&metaInformation=true&apiKey=${SPOONACULAR_API_KEY}`);
         const data = await res.json();
         renderDropdownSuggestions(data);
     } catch (err) {
@@ -64,7 +62,7 @@ function addIngredient(item) {
         <div class="ingredient-circle">
             <img src="https://spoonacular.com/cdn/ingredients_100x100/${item.image}" alt="${item.name}" />
         </div>
-        <span>${item.name}</span>
+        <span class="ingredient-text">${item.name}</span>
     `;
 
     const deleteBtn = document.createElement("button");
@@ -86,7 +84,7 @@ form.addEventListener("submit", async (e) => {
 
     try {
         const res = await fetch(
-            `https://api.spoonacular.com/food/ingredients/autocomplete?query=${encodeURIComponent(value)}&number=1&metaInformation=true&apiKey=${apiKey}`
+            `https://api.spoonacular.com/food/ingredients/autocomplete?query=${encodeURIComponent(value)}&number=1&metaInformation=true&apiKey=${SPOONACULAR_API_KEY}`
         );
         const data = await res.json();
 
