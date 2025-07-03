@@ -15,8 +15,8 @@ if(recipe){
     console.log(recipe);
     displayRecipe(recipe);
 } else {
-    console.log("Kein Rezept ausgewählt.");
-    document.querySelector('.wrapper').textContent = 'Kein Rezept ausgewählt.';
+    console.log("No recipe selected.");
+    document.querySelector('.wrapper').textContent = 'No recipe selected.';
 }
 
 //render recipe in detail view
@@ -40,18 +40,18 @@ function displayRecipe(recipe) {
         </div>
       </div>
 
-      <h3 class="section-title">Zutaten</h3>
+      <h3 class="section-title">Ingredients</h3>
       <ul class="ingredient-icons">
-        ${recipe.extendedIngredients?.map(ing => `<li>${ing.original}</li>`).join('') || '<li>Keine Zutaten verfügbar.</li>'}
+        ${recipe.extendedIngredients?.map(ing => `<li>${ing.original}</li>`).join('') || '<li>No ingredients available.</li>'}
       </ul>
 
       <div class="tabs">
         <span class="tab active">Details</span>
-        <span class="tab inactive">Rezept</span>
+        <span class="tab inactive">Instructions</span>
       </div>
 
       <p class="recipe-description">
-        ${recipe.summary || 'Keine Beschreibung vorhanden.'}
+        ${recipe.summary || 'No description available.'}
       </p>
     </div>
   `;
@@ -70,7 +70,7 @@ function displayRecipe(recipe) {
         detailTab.classList.remove('inactive');
         recipeTab.classList.add('inactive');
         recipeTab.classList.remove('active');
-        description.innerHTML = recipe.summary || 'Keine Beschreibung vorhanden.';
+        description.innerHTML = recipe.summary || 'No description available.';
     });
 
     recipeTab.addEventListener('click', () => {
@@ -78,6 +78,6 @@ function displayRecipe(recipe) {
         recipeTab.classList.remove('inactive');
         detailTab.classList.add('inactive');
         detailTab.classList.remove('active');
-        description.innerHTML = recipe.instructions || 'Keine Anleitung vorhanden.';
+        description.innerHTML = recipe.instructions || 'No instructions available.';
     });
 }
