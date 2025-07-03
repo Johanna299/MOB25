@@ -27,7 +27,8 @@ function searchRecipes(ingredients) {
 
 document.querySelector('.btn').addEventListener('click', function(e) {
     e.preventDefault(); // Seite nicht direkt wechseln
-    console.log("Klick");
     const ingredients = getIngredientsFromList();
+    // Zutaten im SessionStorage speichern:
+    sessionStorage.setItem('ingredients', JSON.stringify(ingredients));
     searchRecipes(ingredients);
 });
