@@ -10,10 +10,20 @@ if ("serviceWorker" in navigator){
         });
 }
 
-//TODO API getestet, Daten im index.html console ausgegeben
-// fetch(`https://api.spoonacular.com/recipes/complexSearch?query=pasta&apiKey=${SPOONACULAR_API_KEY}`)
-//     .then(res => res.json())
-//     .then(data => {
-//         console.log(data.results);
-//         // Hier könntest du die Daten dynamisch ins HTML schreiben
-//     });
+// Wenn offline, Link im Button auf saved-recipes.html setzen
+if (!navigator.onLine) {
+    const getStartedBtn = document.querySelector('.start-btn');
+    if (getStartedBtn) {
+        getStartedBtn.href = "pages/saved-recipes.html";
+    }
+}
+
+// Optional: Eventlistener, um beim Wechsel zwischen online/offline den Link anzupassen
+window.addEventListener('online', () => {
+    const btn = document.querySelector('.start-btn');
+    if (btn) btn.href = "pages/ingredients-input.html";
+});
+window.addEventListener('offline', () => {
+    const btn = document.querySelector('.start-btn');
+    if (btn) btn.href = "pages/saved-recipes.html";
+});

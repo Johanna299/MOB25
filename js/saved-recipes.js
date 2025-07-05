@@ -39,6 +39,15 @@ import { getAllRecipes, isRecipeSaved, saveRecipe, removeRecipe } from './indexe
 let fullSavedRecipes = []; // für Zugriff auf alle Rezeptdaten (wie in recipe-suggestions.js)
 
 document.addEventListener('DOMContentLoaded', async () => {
+    // check if user is offline
+    if (!navigator.onLine) {
+        // hide button "Back to the suggestions"
+        const backBtn = document.querySelector('.back-btn');
+        if (backBtn) {
+            backBtn.style.display = 'none';
+        }
+    }
+
     const saved = await getAllRecipes();
     fullSavedRecipes = saved; // speichern für späteren Zugriff
 
@@ -106,4 +115,15 @@ document.addEventListener('click', event => {
             }
         }
     }
+});
+
+//hide button "Back to the suggestions" if user is offline
+window.addEventListener('offline', () => {
+    const backBtn = document.querySelector('.back-btn');
+    if (backBtn) backBtn.style.display = 'none';
+});
+//show button "Back to the suggestions" if user is online
+window.addEventListener('online', () => {
+    const backBtn = document.querySelector('.back-btn');
+    if (backBtn) backBtn.style.display = 'inline-block'; // oder '' für Standard
 });
