@@ -1,4 +1,4 @@
-const CACHE_NAME = "whats-cookin-cache-v2";
+const CACHE_NAME = "whats-cookin-cache-v3";
 const CACHED_URLS = [
     "/",
     "index.html",

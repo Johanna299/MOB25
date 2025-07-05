@@ -131,7 +131,7 @@
 // }
 
 //TODO GPT
-import { saveRecipe, removeRecipe } from './indexeddb.js';
+import { saveRecipe, removeRecipe, isRecipeSaved } from './indexeddb.js';
 
 document.addEventListener('click', event => {
     const saveButton = event.target.closest('.save-recipe');
@@ -161,19 +161,19 @@ document.addEventListener('click', event => {
 });
 
 
-// Herz-Button (Speichern) -- TODO nur Toggle Effekt derzeit
-document.addEventListener('click', event => {
-    const saveButton = event.target.closest('.save-recipe');
-    if (saveButton) {
-        event.preventDefault();
-        event.stopPropagation();
-
-        const icon = saveButton.querySelector('i');
-        saveButton.classList.toggle('active');
-        icon.classList.toggle('fa-regular');
-        icon.classList.toggle('fa-solid');
-    }
-});
+// // Herz-Button (Speichern) -- TODO nur Toggle Effekt derzeit
+// document.addEventListener('click', event => {
+//     const saveButton = event.target.closest('.save-recipe');
+//     if (saveButton) {
+//         event.preventDefault();
+//         event.stopPropagation();
+//
+//         const icon = saveButton.querySelector('i');
+//         saveButton.classList.toggle('active');
+//         icon.classList.toggle('fa-regular');
+//         icon.classList.toggle('fa-solid');
+//     }
+// });
 
 // Globale Variablen für Pagination und Filter
 let offset = 0;
@@ -280,21 +280,62 @@ function renderCategoryButtons(categoriesSet) {
     });
 }
 
-// Rezepte rendern (Array von Einträgen)
-function renderRecipes(recipeEntries) {
+// // Rezepte rendern (Array von Einträgen)
+// function renderRecipes(recipeEntries) {
+//     const container = document.querySelector('.recipe-grid');
+//     container.innerHTML = '';
+//
+//     recipeEntries.forEach(entry => {
+//         const { data, match } = entry;
+//         const card = document.createElement('a');
+//         card.classList.add('recipe-card');
+//         card.href = "recipe-detail.html";
+//         card.innerHTML = `
+//             <div class="image-wrapper">
+//                 <img src="${data.image}" alt="${data.title}"/>
+//                 <button class="save-recipe">
+//                     <i class="fa-regular fa-heart"></i>
+//                 </button>
+//             </div>
+//             <div class="recipe-info">
+//                 <p class="recipe-title">${data.title}</p>
+//                 <p class="recipe-match">${match}% Ingredient-Match</p>
+//                 <p class="recipe-duration">
+//                     <i class="fa-solid fa-stopwatch"></i>
+//                     ${data.readyInMinutes}min
+//                 </p>
+//             </div>
+//         `;
+//         card.addEventListener("click", () => {
+//             sessionStorage.setItem("selectedRecipe", JSON.stringify(data));
+//         });
+//         container.appendChild(card);
+//     });
+// }
+
+// renderRecipes jetzt async, da wir auf isRecipeSaved warten müssen
+async function renderRecipes(recipeEntries) {
     const container = document.querySelector('.recipe-grid');
     container.innerHTML = '';
 
-    recipeEntries.forEach(entry => {
+    for (const entry of recipeEntries) {
         const { data, match } = entry;
+
+        const saved = await isRecipeSaved(data.id);  // Prüfen, ob gespeichert
+
         const card = document.createElement('a');
         card.classList.add('recipe-card');
         card.href = "recipe-detail.html";
+
+        // Herz-Klassen setzen je nach saved-Status
+        const heartClass = saved ? 'fa-solid' : 'fa-regular';
+        const activeClass = saved ? 'active' : '';
+
         card.innerHTML = `
             <div class="image-wrapper">
                 <img src="${data.image}" alt="${data.title}"/>
-                <button class="save-recipe">
-                    <i class="fa-regular fa-heart"></i>
+                <button class="save-recipe ${activeClass}">
+                    <i class="fa-heart ${heartClass}"></i>
                 </button>
             </div>
             <div class="recipe-info">
@@ -310,8 +351,9 @@ function renderRecipes(recipeEntries) {
             sessionStorage.setItem("selectedRecipe", JSON.stringify(data));
         });
         container.appendChild(card);
-    });
+    }
 }
+
 
 // Hilfsfunktion für Match-Berechnung
 function getMatch(recipe) {

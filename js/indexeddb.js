@@ -41,3 +41,22 @@ export async function getAllRecipes() {
         request.onerror = () => reject(request.error);
     });
 }
+
+export async function isRecipeSaved(id) {
+    const db = await openDB();
+    const tx = db.transaction(storeName, "readonly");
+    const store = tx.objectStore(storeName);
+    const request = store.get(id);
+
+    return new Promise((resolve, reject) => {
+        request.onsuccess = () => {
+            resolve(request.result !== undefined);
+            db.close();
+        };
+        request.onerror = () => {
+            reject(request.error);
+            db.close();
+        };
+    });
+}
+
