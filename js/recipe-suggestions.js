@@ -349,6 +349,8 @@ async function renderRecipes(recipeEntries) {
         `;
         card.addEventListener("click", () => {
             sessionStorage.setItem("selectedRecipe", JSON.stringify(data));
+            //remember last visited page (for navigating back from recipe-detail.html)
+            sessionStorage.setItem("lastPage", "recipe-suggestions.html");
         });
         container.appendChild(card);
     }

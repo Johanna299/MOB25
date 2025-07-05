@@ -71,6 +71,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         card.addEventListener("click", () => {
             sessionStorage.setItem("selectedRecipe", JSON.stringify(recipe));
+            //remember last visited page (for navigating back from recipe-detail.html)
+            sessionStorage.setItem("lastPage", "saved-recipes.html");
         });
 
         container.appendChild(card);

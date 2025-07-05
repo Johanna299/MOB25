@@ -5,22 +5,40 @@
     <title>My Saved Recipes</title>
     <link rel="stylesheet" href="../styles/styles.css">
     <link rel="stylesheet" href="../styles/recipe-suggestions_styles.css">
+    <!-- include fontawesome.com -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
 
-<header>
-    <h1>Saved Recipes</h1>
-    <nav>
-        <a href="index.html">Zurück zur Auswahl</a>
-    </nav>
-</header>
+<!--<header>-->
+<!--    <h1>Saved Recipes</h1>-->
+<!--    <nav>-->
+<!--        <a href="index.html">Zurück zur Auswahl</a>-->
+<!--    </nav>-->
+<!--</header>-->
 
-<main>
-    <section class="recipe-grid">
-        <!-- Rezepte werden hier dynamisch eingefügt -->
-    </section>
-</main>
+<!--<main>-->
+<!--    <section class="recipe-grid">-->
+<!--        &lt;!&ndash; Rezepte werden hier dynamisch eingefügt &ndash;&gt;-->
+<!--    </section>-->
+<!--</main>-->
+
+<!--TODO-->
+<div class="container">
+    <div class="header">
+        <a href="recipe-suggestions.html" class="back-btn">
+            <i class="fa-solid fa-arrow-left"></i>
+            Back to the suggestions
+        </a>
+    </div>
+
+    <h1 class="headline">My Saved Recipes</h1>
+
+    <div class="recipe-grid">
+        <!--            dynamically rendered recipes from indexedDB-->
+    </div>
+
+</div>
 
 <script type="module" src="../js/saved-recipes.js"></script>
 </body>

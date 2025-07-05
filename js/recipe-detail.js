@@ -11,6 +11,13 @@ import { saveRecipe, removeRecipe, isRecipeSaved } from './indexeddb.js';
 //     });
 // });
 
+//dynamically navigating back to the last visited page
+document.addEventListener('DOMContentLoaded', () => {
+    const backBtn = document.querySelector('.back-btn');
+    const lastPage = sessionStorage.getItem("lastPage") || "recipe-suggestions.html";
+    backBtn.href = lastPage;
+});
+
 document.addEventListener('DOMContentLoaded', async () => {
 
 //get the one selected recipe from recipe-suggestions

@@ -40,21 +40,6 @@
     cursor: pointer;
 }
 
-/* camera button */
-.camera-btn {
-    background-color: #5d3c9e;
-    color: white;
-    border: none;
-    border-radius: 50%;
-    width: 42px;
-    height: 42px;
-    font-size: 18px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-}
-
 /*---------------------------------------------------------
 * ingredients list
 ---------------------------------------------------------*/
@@ -176,6 +161,8 @@
 .input-wrapper {
     position: relative;
     width: 100%;
+    display: flex;
+    justify-content: space-between;
 }
 
 .detached-dropdown {
