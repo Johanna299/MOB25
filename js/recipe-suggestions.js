@@ -131,7 +131,35 @@
 // }
 
 //TODO GPT
-// recipe-suggestions.js
+import { saveRecipe, removeRecipe } from './indexeddb.js';
+
+document.addEventListener('click', event => {
+    const saveButton = event.target.closest('.save-recipe');
+    if (saveButton) {
+        event.preventDefault();
+        event.stopPropagation();
+
+        const icon = saveButton.querySelector('i');
+        saveButton.classList.toggle('active');
+        icon.classList.toggle('fa-regular');
+        icon.classList.toggle('fa-solid');
+
+        // Rezept-ID aus parent card holen
+        const recipeCard = saveButton.closest('.recipe-card');
+        const title = recipeCard.querySelector('.recipe-title').textContent;
+        const recipeEntry = fullRecipeData.find(r => r.data.title === title);
+
+        if (recipeEntry) {
+            const recipe = recipeEntry.data;
+            if (saveButton.classList.contains('active')) {
+                saveRecipe(recipe); // speichern
+            } else {
+                removeRecipe(recipe.id); // entfernen
+            }
+        }
+    }
+});
+
 
 // Herz-Button (Speichern) -- TODO nur Toggle Effekt derzeit
 document.addEventListener('click', event => {
