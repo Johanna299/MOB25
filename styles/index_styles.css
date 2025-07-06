@@ -8,31 +8,8 @@
     margin-bottom: 40px;
 }
 
-/* h1 on startscreen */
+/* main headline h1 on start screen */
 .headline {
     text-align: center;
     margin-bottom: 30px;
 }
-
-
-/*!* TODO brauchn wir des? optimization for desktop *!*/
-/*@media (min-width: 1024px) {*/
-/*    .container {*/
-/*        padding: 80px 100px;*/
-/*    }*/
-
-/*    .logo-circle {*/
-/*        width: 200px;*/
-/*        height: 200px;*/
-/*        font-size: 26px;*/
-/*    }*/
-
-/*    .headline {*/
-/*        font-size: 28px;*/
-/*    }*/
-
-/*    .btn {*/
-/*        font-size: 18px;*/
-/*        padding: 14px 28px;*/
-/*    }*/
-/*}*/

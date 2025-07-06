@@ -10,22 +10,23 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
-<div class="container">
-    <div class="header">
-        <a href="recipe-suggestions.html" class="back-btn">
-            <i class="fa-solid fa-arrow-left"></i>
-            Back to the suggestions
-        </a>
+    <div class="container">
+        <div class="header">
+            <a href="recipe-suggestions.html" class="back-btn">
+                <i class="fa-solid fa-arrow-left"></i>
+                Back to the suggestions
+            </a>
+        </div>
+
+        <h1 class="headline">My Saved Recipes</h1>
+
+        <!-- saved recipes -->
+        <div class="recipe-grid">
+            <!-- dynamically rendered recipes from indexedDB-->
+        </div>
+
     </div>
 
-    <h1 class="headline">My Saved Recipes</h1>
-
-    <div class="recipe-grid">
-        <!--            dynamically rendered recipes from indexedDB-->
-    </div>
-
-</div>
-
-<script type="module" src="../js/saved-recipes.js"></script>
+    <script type="module" src="../js/saved-recipes.js"></script>
 </body>
 </html>

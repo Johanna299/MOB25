@@ -1,4 +1,6 @@
-const CACHE_NAME = "whats-cookin-cache-v6";
+//cache name with versioning to manage updates
+const CACHE_NAME = "whats-cookin-cache-v7";
+//list of URLs/files to be cached during service worker installation
 const CACHED_URLS = [
     "/",
     "index.html",
@@ -17,8 +19,11 @@ const CACHED_URLS = [
     "favicon.ico"
 ];
 
+
+//service worker installation event: cache all specified assets
 self.addEventListener("install", function(event) {
     console.log("Service Worker installing.");
+    //wait until all URLs are cached before finishing installation
     event.waitUntil(
         caches.open(CACHE_NAME).then(function(c) {
             return c.addAll(CACHED_URLS);
@@ -28,43 +33,50 @@ self.addEventListener("install", function(event) {
     );
 })
 
+//intercept network requests (fetch events)
 self.addEventListener("fetch", function(event) {
     const requestURL = new URL(event.request.url);
 
-    // Wir behandeln nur Navigationsanfragen (also Seitenaufrufe)
+    //handle only navigation requests (page loads)
     if (event.request.mode === "navigate") {
         event.respondWith(
+            //try network first
             fetch(event.request)
                 .catch(() => {
-                    // Wenn Netzwerk nicht geht, prüfen wir was der Pfad ist
+                    //if offline or network fails, serve fallback pages from cache
+
+                    //if user tries to access homepage, redirect to saved-recipes.html offline page
                     if (requestURL.pathname === "/" || requestURL.pathname === "/index.html") {
-                        // Offline auf saved-recipes.html umleiten
                         return caches.match("/pages/saved-recipes.html");
                     }
 
-                    // Wenn saved-recipes.html direkt angefragt wird, im Cache ausliefern
+                    //if saved-recipes.html is requested directly, serve it from cache
                     if (requestURL.pathname === "/pages/saved-recipes.html") {
                         return caches.match("/pages/saved-recipes.html");
                     }
 
-                    // Für alle anderen Navigationsanfragen, versuche aus Cache zu bedienen
+                    //for any other navigation request, try to serve from cache,
+                    //if not found fallback to saved-recipes.html
                     return caches.match(event.request)
                         .then(response => response || caches.match("/pages/saved-recipes.html"));
                 })
         );
     } else {
-        // Für alle anderen Requests (CSS, JS, Bilder etc.) network first, fallback cache
+        //for non-navigation requests (CSS, JS, images), try network first,
+        //fallback to cache if network is unavailable
         event.respondWith(
             fetch(event.request).catch(() => caches.match(event.request))
         );
     }
 });
 
+//activate event: clean up old caches when a new service worker activates
 self.addEventListener("activate",(event)=>{
     event.waitUntil(
         caches.keys().then((cacheNames)=>{
             return Promise.all(
                 cacheNames.map((cacheName)=>{
+                    //delete any old caches that don't match the current CACHE_NAME
                     if(CACHE_NAME !== cacheName && cacheName.startsWith("whats-cookin-cache")){
                         console.log("Deleting old cache:", cacheName);
                         return caches.delete(cacheName);

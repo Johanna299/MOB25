@@ -1,4 +1,6 @@
-/* General CSS layout */
+/*---------------------------------------------------------
+* General CSS layout
+---------------------------------------------------------*/
 body {
     margin: 0;
     font-family: 'Inter', sans-serif;
@@ -27,7 +29,7 @@ body {
     align-items: center;
 }
 
-/* h1 */
+/* main page title h1 */
 .headline {
     font-size: 24px;
     font-weight: bold;
@@ -35,7 +37,7 @@ body {
     line-height: 1.4;
 }
 
-/* h2 */
+/* section titles h2 */
 .section-title {
     margin-top: 30px;
     font-size: 16px;
@@ -51,7 +53,7 @@ a {
     text-decoration: none;
 }
 
-/* Button */
+/* standard button */
 .btn {
     background-color: #c4e86b;
     color: #FFFFFF;
@@ -64,7 +66,7 @@ a {
     cursor: pointer;
 }
 
-/* button for all saved recipes */
+/* button to navigate to saved-recipes */
 .allfavs-btn {
     background-color: #f26522;
     color: #ffffff;
@@ -85,7 +87,7 @@ a {
     background-color: #d4581f;
 }
 
-/* back button to go to ingredients-input */
+/* back button for navigating back */
 .back-btn {
     background-color: #c4e86b;
     color: #FFFFFF;
@@ -100,6 +102,7 @@ a {
     background-color: #b0d85e;
 }
 
+/* save recipe button style (heart icon button) */
 .save-recipe {
     top: 10px;
     right: 10px;
@@ -114,6 +117,7 @@ a {
     transition: color 0.2s ease;
 }
 
+/* when recipe is saved, change heart icon color */
 .save-recipe.active i {
     color: #FF680D;
 }
@@ -123,7 +127,10 @@ a {
     pointer-events: none;
 }
 
-/* optimization for desktop */
+/*---------------------------------------------------------
+* responsive design optimization
+---------------------------------------------------------*/
+/* for desktop screens */
 @media (min-width: 1024px) {
     .container {
         padding: 40px 80px;

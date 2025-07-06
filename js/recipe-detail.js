@@ -1,17 +1,6 @@
 import { saveRecipe, removeRecipe, isRecipeSaved } from './indexeddb.js';
 
-//save a recipe with a click on the heart-buttond (TODO derzeit nur farbig, aber ned wirklich gespeichert)
-// document.querySelectorAll('.save-recipe').forEach(button => {
-//     button.addEventListener('click', () => {
-//         const icon = button.querySelector('i');
-//         button.classList.toggle('active');
-//         //toggle between filled and outline icon
-//         icon.classList.toggle('fa-regular');
-//         icon.classList.toggle('fa-solid');
-//     });
-// });
-
-//dynamically navigating back to the last visited page
+//when the page loads, set the back button link to the last visited page
 document.addEventListener('DOMContentLoaded', () => {
     const backBtn = document.querySelector('.back-btn');
     const lastPage = sessionStorage.getItem("lastPage") || "recipe-suggestions.html";
@@ -19,23 +8,25 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 document.addEventListener('DOMContentLoaded', async () => {
-
-//get the one selected recipe from recipe-suggestions
+    //get the one selected recipe from sessionStorage
     const recipe = JSON.parse(sessionStorage.getItem("selectedRecipe"));
     if(recipe){
         console.log(recipe);
+        //display the selected recipe in the detail view
         displayRecipe(recipe);
     } else {
+        //if no recipe is selected, show a message
         console.log("No recipe selected.");
         document.querySelector('.wrapper').textContent = 'No recipe selected.';
     }
 });
 
-//render recipe in detail view
+
+//function to render the selected recipe in the detail view
 function displayRecipe(recipe) {
     const wrapper = document.querySelector('.wrapper');
 
-    //template filled with dynamic recipe data
+    //HTML template for displaying recipe content dynamically
     const card = `
     <div class="recipe-main">
       <div class="image-wrapper large">
@@ -68,15 +59,16 @@ function displayRecipe(recipe) {
     </div>`;
 
     wrapper.innerHTML = '';
-    // insert template
+    //add new recipe content
     wrapper.insertAdjacentHTML('beforeend', card);
 
-    //activate tabs
+    //setup tab functionality (switch between description and instructions)
     const detailTab = document.querySelector('.tab:nth-child(1)');
     const recipeTab = document.querySelector('.tab:nth-child(2)');
     const description = document.querySelector('.recipe-description');
 
     detailTab.addEventListener('click', () => {
+        //show description
         detailTab.classList.add('active');
         detailTab.classList.remove('inactive');
         recipeTab.classList.add('inactive');
@@ -85,6 +77,7 @@ function displayRecipe(recipe) {
     });
 
     recipeTab.addEventListener('click', () => {
+        //show instructions
         recipeTab.classList.add('active');
         recipeTab.classList.remove('inactive');
         detailTab.classList.add('inactive');
@@ -92,30 +85,32 @@ function displayRecipe(recipe) {
         description.innerHTML = recipe.instructions || 'No instructions available.';
     });
 
-    // Herz-Button initialisieren
+    //initialize the save (heart) button
     const saveButton = document.querySelector('.save-recipe');
     const icon = saveButton.querySelector('i');
 
-    // Status aus IndexedDB lesen
+    //check if the recipe is already saved in IndexedDB
     isRecipeSaved(recipe.id).then(saved => {
         if (saved) {
+            //update UI to show it's saved
             saveButton.classList.add('active');
             icon.classList.remove('fa-regular');
             icon.classList.add('fa-solid');
         }
     });
 
-    // Klickverhalten zum Speichern/Entfernen
+    //toggle recipe saved status on button click
     saveButton.addEventListener('click', () => {
         saveButton.classList.toggle('active');
         icon.classList.toggle('fa-regular');
         icon.classList.toggle('fa-solid');
 
         if (saveButton.classList.contains('active')) {
+            //save to IndexedDB
             saveRecipe(recipe);
         } else {
+            //remove from IndexedDB
             removeRecipe(recipe.id);
         }
     });
-
 }

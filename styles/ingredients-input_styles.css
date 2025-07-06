@@ -1,7 +1,7 @@
 /*---------------------------------------------------------
-* searchbar input and camera button
+* searchbar input styling
 ---------------------------------------------------------*/
-/* container for searchbar and camera button */
+/* container for searchbar */
 .input-section {
     display: flex;
     align-items: center;
@@ -9,7 +9,7 @@
     margin-top: 20px;
 }
 
-/* searchbar */
+/* searchbar form */
 .search-form {
     flex: 1;
     display: flex;
@@ -18,10 +18,11 @@
     border-radius: 999px;
     padding: 2px 12px;
     position: relative;
-    overflow: visible; /* wichtig, damit die Dropdown-Liste übersteht */
+    overflow: visible;
     z-index: 1;
 }
 
+/* search input field inside searchbar */
 .search-form input[type="text"] {
     flex: 1;
     border: none;
@@ -31,7 +32,7 @@
     outline: none;
 }
 
-/* submit for searchbar */
+/* submit button inside searchbar */
 .search-btn {
     background: none;
     border: none;
@@ -43,7 +44,7 @@
 /*---------------------------------------------------------
 * ingredients list
 ---------------------------------------------------------*/
-/* all selected ingredients list */
+/* list for all selected ingredients */
 .ingredient-list {
     list-style: none;
     padding: 0;
@@ -60,8 +61,6 @@
     border-radius: 8px;
     padding: 8px 12px;
 }
-
-
 
 .ingredient-text {
     flex: 1;
@@ -83,8 +82,7 @@
     object-fit: cover;
 }
 
-
-/* delete one ingredient */
+/* delete button for removing an ingredient */
 .delete-btn {
     background-color: #5d3c9e;
     color: white;
@@ -96,6 +94,10 @@
     cursor: pointer;
 }
 
+/*---------------------------------------------------------
+* suggestions dropdown styling
+---------------------------------------------------------*/
+/* container for suggestion list */
 .suggestion-box {
     list-style: none;
     margin: 0;
@@ -110,6 +112,7 @@
     overflow-y: auto;
 }
 
+/* suggestion item */
 .suggestion-box li {
     padding: 0.5rem;
     cursor: pointer;
@@ -124,7 +127,7 @@
     top: 100%;
     left: 0;
     width: 100%;
-    max-height: 144px; /* ca. 2 Einträge à 72px */
+    max-height: 144px;
     overflow-y: auto;
     background-color: #fff;
     border: 1px solid #d3d3d3;
@@ -137,7 +140,6 @@
     scroll-behavior: smooth;
 }
 
-
 .dropdown-item {
     height: 72px;
     padding: 10px 12px;
@@ -145,11 +147,11 @@
     align-items: center;
 }
 
-
 .dropdown-item:hover {
     background-color: #f5f5ff;
 }
 
+/* image inside dropdown items */
 .dropdown-item img {
     width: 36px;
     height: 36px;
@@ -158,6 +160,7 @@
     margin-right: 10px;
 }
 
+/* wrapper to position input and dropdown relative to each other */
 .input-wrapper {
     position: relative;
     width: 100%;
@@ -168,8 +171,8 @@
 .detached-dropdown {
     margin-top: 8px;
     width: 100%;
-    max-width: 600px; /* optional: begrenzt Breite */
-    max-height: 144px; /* ca. 2 Einträge */
+    max-width: 600px;
+    max-height: 144px;
     overflow-y: auto;
     background-color: #fff;
     border: 1px solid #ccc;
@@ -180,7 +183,6 @@
     display: none;
 }
 
-
 .custom-dropdown .dropdown-item img {
     width: 40px;
     height: 40px;
@@ -188,5 +190,3 @@
     border-radius: 50%!important;
     border: 1px solid #ddd;
 }
-
-/*test*/

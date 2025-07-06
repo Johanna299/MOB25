@@ -16,9 +16,11 @@
             <h1 class="headline">My Ingredients</h1>
         </div>
 
+        <!-- search form for entering ingredients -->
         <div class="input-section">
             <form class="search-form" id="search-form">
                 <div class="input-wrapper">
+                    <!-- text input for ingredient entry -->
                     <input
                             id="ingredient-input"
                             type="text"
@@ -30,14 +32,12 @@
                     </button>
                 </div>
             </form>
-
-
         </div>
 
+        <!-- dropdown container to show ingredient suggestions -->
         <div id="suggestion-box" class="custom-dropdown" style="display: none;"></div>
 
-
-
+        <!-- list where selected ingredients will be dynamically added -->
         <h2 class="section-title">Selected Ingredients</h2>
         <ul class="ingredient-list">
             <!-- dynamically rendered ingredients from API -->
